@@ -1,8 +1,8 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <q-card class="col-11 row justify-center q-pa-md q-gutter-x-md">
-      <div class="col">
-        <p class="text-h5 text-bold non-selectable">Animations</p>
+  <q-page class="row justify-center items-center">
+    <div class="row justify-center q-gutter-sm">
+      <q-card class="col-5 column justify-center q-pa-sm">
+        <p class="text-h6 text-bold non-selectable">Animations</p>
         <q-separator />
         <div class="col row q-col-gutter-sm q-pa-md">
           <template v-for="n in pageSize" :key="page + '-' + n">
@@ -14,19 +14,20 @@
             </div>
           </template>
         </div>
-        <q-pagination v-model="page" :max="maxPage" direction-links />
-      </div>
-      <q-separator vertical />
-      <div class="col">
-        <p class="text-h5 text-bold non-selectable">Animation State</p>
+        <div class="row justify-end">
+          <q-pagination v-model="page" :max="maxPage" direction-links />
+        </div>
+      </q-card>
+      <q-card class="col-5 column q-pa-sm">
+        <p class="text-h6 text-bold non-selectable">Animation State</p>
         <q-separator />
         <div class="column q-col-gutter-y-md q-pa-md">
-          <template v-for="param in animationStore.animation?.params" :key="param.name">
+          <template v-for="param in animation?.params" :key="param.name">
             <ParamInput :param="param" />
           </template>
         </div>
-      </div>
-    </q-card>
+      </q-card>
+    </div>
   </q-page>
 </template>
 
